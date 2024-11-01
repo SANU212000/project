@@ -23,17 +23,16 @@ class HomePage extends StatelessWidget {
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         shadowColor: Colors.black,
-                        backgroundColor: const Color.fromARGB(12, 12, 12, 12),
+                        backgroundColor: const Color.fromARGB(80, 255, 165, 0),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(35.0),
                         ),
-                        padding: EdgeInsets.symmetric(vertical: 5),
+                        padding: const EdgeInsets.symmetric(vertical: 5),
                       ),
                       onPressed: () {
-                        Navigator.push(
+                        Navigator.pushReplacement(
                           context,
-                          MaterialPageRoute(
-                              builder: (context) => const MainScreen()),
+                          MaterialPageRoute(builder: (context) => MainScreen()),
                         );
                       },
                       child: const Text(
@@ -48,7 +47,7 @@ class HomePage extends StatelessWidget {
                   )
                 ],
               ),
-              Spacer(),
+              const Spacer(),
               CircleAvatar(
                 radius: 100,
                 backgroundColor: kPrimaryColor,
@@ -101,10 +100,13 @@ class HomePage extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15.0),
                     ),
-                    padding: EdgeInsets.symmetric(vertical: 25),
+                    padding: const EdgeInsets.symmetric(vertical: 25),
                   ),
                   onPressed: () {
-                    print("skip pressed");
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => MainScreen()),
+                    );
                   },
                   child: const Text(
                     "Let's Get Started",
