@@ -23,6 +23,7 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/images/Hatypo.png
 
   fonts:
     - family: sans

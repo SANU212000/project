@@ -31,6 +31,90 @@ class MainScreen extends StatelessWidget {
       "time": "Yesterday",
       "unreadCount": 1,
     },
+    {
+      "profileImage": "assets/images/Faza.png",
+      "name": "Faza Dzikrulloh",
+      "lastMessage": "Can you help me with new project...",
+      "time": "14:30",
+      "unreadCount": 2,
+    },
+    {
+      "profileImage": "assets/images/Hatypo.png",
+      "name": "Hatypo Studio",
+      "lastMessage": "I think we should upgrade the social media...",
+      "time": "14:00",
+      "unreadCount": 0,
+    },
+    {
+      "profileImage": "assets/images/Zhofran.png",
+      "name": "Zhofran A",
+      "lastMessage": "I’ll check it later",
+      "time": "13:40",
+      "unreadCount": 0,
+    },
+    {
+      "profileImage": "assets/images/Vito.png",
+      "name": "Vito Avry",
+      "lastMessage": "Great work! Let's schedule it tomorrow.",
+      "time": "Yesterday",
+      "unreadCount": 1,
+    },
+    {
+      "profileImage": "assets/images/Faza.png",
+      "name": "Faza Dzikrulloh",
+      "lastMessage": "Can you help me with new project...",
+      "time": "14:30",
+      "unreadCount": 2,
+    },
+    {
+      "profileImage": "assets/images/Hatypo.png",
+      "name": "Hatypo Studio",
+      "lastMessage": "I think we should upgrade the social media...",
+      "time": "14:00",
+      "unreadCount": 0,
+    },
+    {
+      "profileImage": "assets/images/Zhofran.png",
+      "name": "Zhofran A",
+      "lastMessage": "I’ll check it later",
+      "time": "13:40",
+      "unreadCount": 0,
+    },
+    {
+      "profileImage": "assets/images/Vito.png",
+      "name": "Vito Avry",
+      "lastMessage": "Great work! Let's schedule it tomorrow.",
+      "time": "Yesterday",
+      "unreadCount": 1,
+    },
+    {
+      "profileImage": "assets/images/Faza.png",
+      "name": "Faza Dzikrulloh",
+      "lastMessage": "Can you help me with new project...",
+      "time": "14:30",
+      "unreadCount": 2,
+    },
+    {
+      "profileImage": "assets/images/Hatypo.png",
+      "name": "Hatypo Studio",
+      "lastMessage": "I think we should upgrade the social media...",
+      "time": "14:00",
+      "unreadCount": 0,
+    },
+    {
+      "profileImage": "assets/images/Zhofran.png",
+      "name": "Zhofran A",
+      "lastMessage": "I’ll check it later",
+      "time": "13:40",
+      "unreadCount": 0,
+    },
+    {
+      "profileImage": "assets/images/Vito.png",
+      "name": "Vito Avry",
+      "lastMessage": "Great work! Let's schedule it tomorrow.",
+      "time": "Yesterday",
+      "unreadCount": 1,
+    },
   ];
 
   MainScreen({super.key});
@@ -57,22 +141,25 @@ class MainScreen extends StatelessWidget {
             ),
           ],
           bottom: PreferredSize(
-            preferredSize: const Size.fromHeight(50),
+            preferredSize: const Size.fromHeight(100),
             child: Container(
+              height: 60,
               decoration: BoxDecoration(
                 color: Colors.grey[200],
-                borderRadius: BorderRadius.circular(15),
+                borderRadius: BorderRadius.circular(8),
               ),
-              margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              margin: const EdgeInsets.symmetric(horizontal: 19, vertical: 14),
               child: TabBar(
                 labelColor: Colors.white,
                 unselectedLabelColor: kPrimaryColor,
+                indicatorColor: Colors.transparent,
                 indicator: BoxDecoration(
                   color: kPrimaryColor,
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(8),
                 ),
                 indicatorSize: TabBarIndicatorSize.tab,
-                indicatorPadding: const EdgeInsets.symmetric(horizontal: 5),
+                indicatorPadding:
+                    const EdgeInsets.symmetric(horizontal: 3, vertical: 3),
                 tabs: const [
                   Tab(text: 'Chat'),
                   Tab(text: 'Status'),
@@ -98,7 +185,10 @@ class MainScreen extends StatelessWidget {
           },
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+
+          },
+          
           backgroundColor: kPrimaryColor,
           child: const Icon(Icons.add),
         ),
