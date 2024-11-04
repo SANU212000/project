@@ -1,6 +1,8 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_design_projec/constants.dart';
 import 'package:flutter_design_projec/screens/screen2.dart';
+import 'package:flutter_design_projec/screens/loginScreen.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -122,9 +124,9 @@ class HomePage extends StatelessWidget {
               GestureDetector(
                 onTap: () {},
                 child: RichText(
-                  text: const TextSpan(
+                  text: TextSpan(
                     text: "Already have an account? ",
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontFamily: 'sans',
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
@@ -133,10 +135,18 @@ class HomePage extends StatelessWidget {
                     children: [
                       TextSpan(
                         text: "Login",
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: kPrimaryColor,
                           fontWeight: FontWeight.w500,
                         ),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => LoginPage()),
+                            );
+                          },
                       ),
                     ],
                   ),
