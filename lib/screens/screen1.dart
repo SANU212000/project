@@ -1,160 +1,155 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_design_projec/constants.dart';
 import 'package:flutter_design_projec/screens/screen2.dart';
-import 'package:flutter_design_projec/screens/loginScreen.dart';
+import 'package:flutter_design_projec/screens/loginscreen.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
+class Screen1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kWhiteColor,
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(24.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  GestureDetector(
-                    onTap: () {},
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        shadowColor: Colors.black,
-                        backgroundColor: const Color.fromARGB(80, 255, 165, 0),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(35.0),
+        child: Stack(
+          children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  'assets/images/front.png',
+                  width: 400,
+                  height: 400,
+                ),
+                const SizedBox(height: 20),
+                const Text(
+                  'Welcome to\nHalodek',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 45,
+                    fontWeight: FontWeight.bold,
+                    color: Color.fromARGB(255, 55, 53, 53),
+                  ),
+                ),
+                const SizedBox(height: 10),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 32.0),
+                  child: Text(
+                    'Halodek supports sending and receiving a variety of media: text, photos, videos, documents, and location, as well as voice calls.',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w700,
+                      color: Color.fromARGB(255, 157, 153, 153),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 40),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                  child: SizedBox(
+                    width: double.infinity,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: const Color(0xFFFF6B00).withOpacity(0.5),
+                            spreadRadius: 0,
+                            blurRadius: 20,
+                            offset: const Offset(0, 4),
+                          ),
+                        ],
+                      ),
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(builder: (context) => Screen2()),
+                          );
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xFFFF6B00),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          padding: const EdgeInsets.symmetric(vertical: 15),
+                          elevation: 0,
                         ),
-                        padding: const EdgeInsets.symmetric(vertical: 5),
-                      ),
-                      onPressed: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(builder: (context) => MainScreen()),
-                        );
-                      },
-                      child: const Text(
-                        "SKIP",
-                        style: TextStyle(
-                            fontFamily: 'sans',
-                            fontSize: 13,
-                            color: kPrimaryColor,
-                            fontWeight: FontWeight.bold),
+                        child: const Text(
+                          "Let's Get Started",
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
                       ),
                     ),
-                  )
-                ],
-              ),
-              const Spacer(),
-              CircleAvatar(
-                radius: 100,
-                backgroundColor: kPrimaryColor,
-                child: ClipOval(
-                  child: Image.asset(
-                    'assets/images/chat-app-design.png',
-                    width: 170,
-                    height: 170,
-                    fit: BoxFit.cover,
+                  ),
+                ),
+                const SizedBox(height: 20),
+              ],
+            ),
+            Align(
+              alignment: Alignment.topRight,
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(60),
+                  ),
+                  child: TextButton(
+                    onPressed: () {},
+                    style: TextButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(255, 241, 230, 219),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 30, vertical: 15),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                    ),
+                    child: const Text(
+                      'Skip',
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 204, 100, 27),
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
                 ),
               ),
-              const SizedBox(height: 80),
-              const Text(
-                "Welcome to",
-                style: TextStyle(
-                  fontFamily: 'sans',
-                  fontSize: 36,
-                  fontWeight: FontWeight.bold,
-                  color: kDarkGrayColor,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              const Text(
-                "Halodek",
-                style: TextStyle(
-                  fontFamily: 'sans',
-                  fontSize: 36,
-                  fontWeight: FontWeight.bold,
-                  color: kDarkGrayColor,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 15),
-              Text(
-                "Halodek supports sending and receiving a variety of media: text, photos, videos, documents, and location, as well as voice calls.",
-                style: TextStyle(
-                  fontFamily: 'sans',
-                  fontSize: 16,
-                  color: kDarkGrayColor.withOpacity(0.7),
-                ),
-                textAlign: TextAlign.center,
-              ),
-              const Spacer(),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: kPrimaryColor,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                    padding: const EdgeInsets.symmetric(vertical: 25),
-                  ),
-                  onPressed: () {
-                    Navigator.pushReplacement(
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 10.0),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => MainScreen()),
+                      MaterialPageRoute(builder: (context) => LoginScreen()),
                     );
                   },
-                  child: const Text(
-                    "Let's Get Started",
-                    style: TextStyle(
-                        fontFamily: 'sans',
-                        fontSize: 20,
-                        color: kWhiteColor,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 20),
-              GestureDetector(
-                onTap: () {},
-                child: RichText(
-                  text: TextSpan(
-                    text: "Already have an account? ",
-                    style: const TextStyle(
-                      fontFamily: 'sans',
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                      color: kDarkGrayColor,
-                    ),
-                    children: [
-                      TextSpan(
-                        text: "Login",
-                        style: const TextStyle(
-                          color: kPrimaryColor,
-                          fontWeight: FontWeight.w500,
-                        ),
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => LoginPage()),
-                            );
-                          },
+                  child: RichText(
+                    text: const TextSpan(
+                      text: 'Already have an account? ',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                        color: Color.fromARGB(255, 138, 137, 137),
                       ),
-                    ],
+                      children: [
+                        TextSpan(
+                          text: 'Login',
+                          style: TextStyle(
+                            color: Color.fromARGB(243, 214, 96, 12),
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-              const Spacer(),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

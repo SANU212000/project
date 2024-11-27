@@ -1,140 +1,137 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_design_projec/constants.dart';
+import 'package:flutter_design_projec/screens/screen3.dart';
 
-class MainScreen extends StatelessWidget {
-  final List<Map<String, dynamic>> chatData = [
-    {
-      "profileImage": "assets/images/Faza.png",
-      "name": "Faza Dzikrulloh",
-      "lastMessage": "Can you help me with new project...",
-      "time": "14:30",
-      "unreadCount": 2,
-      "isTyping": false,
-    },
-    {
-      "profileImage": "assets/images/Hatypo.png",
-      "name": "Hatypo Studio",
-      "lastMessage": "I think we should upgrade the social media...",
-      "time": "14:00",
-      "unreadCount": 0,
-      "isTyping": true,
-    },
-    {
-      "profileImage": "assets/images/Faza.png",
-      "name": "Faza Dzikrulloh",
-      "lastMessage": "Can you help me with new project...",
-      "time": "14:30",
-      "unreadCount": 2,
-    },
-    {
-      "profileImage": "assets/images/Hatypo.png",
-      "name": "Hatypo Studio",
-      "lastMessage": "I think we should upgrade the social media...",
-      "time": "14:00",
-      "unreadCount": 0,
-    },
-    {
-      "profileImage": "assets/images/Faza.png",
-      "name": "Faza Dzikrulloh",
-      "lastMessage": "Can you help me with new project...",
-      "time": "14:30",
-      "unreadCount": 2,
-    },
-    {
-      "profileImage": "assets/images/Hatypo.png",
-      "name": "Hatypo Studio",
-      "lastMessage": "I think we should upgrade the social media...",
-      "time": "14:00",
-      "unreadCount": 0,
-    },
-    {
-      "profileImage": "assets/images/Faza.png",
-      "name": "Faza Dzikrulloh",
-      "lastMessage": "Can you help me with new project...",
-      "time": "14:30",
-      "unreadCount": 2,
-    },
-    {
-      "profileImage": "assets/images/Hatypo.png",
-      "name": "Hatypo Studio",
-      "lastMessage": "I think we should upgrade the social media...",
-      "time": "14:00",
-      "unreadCount": 0,
-    },
-    {
-      "profileImage": "assets/images/Faza.png",
-      "name": "Faza Dzikrulloh",
-      "lastMessage": "Can you help me with new project...",
-      "time": "14:30",
-      "unreadCount": 2,
-    },
-    {
-      "profileImage": "assets/images/Hatypo.png",
-      "name": "Hatypo Studio",
-      "lastMessage": "I think we should upgrade the social media...",
-      "time": "14:00",
-      "unreadCount": 0,
-    },
-    {
-      "profileImage": "assets/images/Faza.png",
-      "name": "Faza Dzikrulloh",
-      "lastMessage": "Can you help me with new project...",
-      "time": "14:30",
-      "unreadCount": 2,
-    },
-    {
-      "profileImage": "assets/images/Hatypo.png",
-      "name": "Hatypo Studio",
-      "lastMessage": "I think we should upgrade the social media...",
-      "time": "14:00",
-      "unreadCount": 0,
-    },
-    // Add more entries as needed
+class ChatListItem {
+  final String name;
+  final String avatar;
+  final String message;
+  final String time;
+  final int unreadCount;
+  final bool isTyping;
+  final bool isRead;
+
+  ChatListItem({
+    required this.name,
+    required this.avatar,
+    required this.message,
+    required this.time,
+    this.unreadCount = 0,
+    this.isTyping = false,
+    this.isRead = false,
+  });
+}
+
+class Screen2 extends StatelessWidget {
+  final List<ChatListItem> chatItems = [
+    ChatListItem(
+      name: "Faza Dzikrulloh",
+      avatar: "assets/images/avatar1.png",
+      message: "Typing...",
+      time: "14.30",
+      isTyping: true,
+    ),
+    ChatListItem(
+      name: "Hatypo Studio",
+      avatar: "assets/images/avatar2.png",
+      message: "Can you help me to do with new project...",
+      time: "14.30",
+      unreadCount: 2,
+    ),
+    ChatListItem(
+      name: "Zhofran A",
+      avatar: "assets/images/avatar3.png",
+      message: "I think we should upgrade the social media...",
+      time: "14.00",
+      unreadCount: 2,
+    ),
+    ChatListItem(
+      name: "Vito Arvy",
+      avatar: "assets/images/avatar4.png",
+      message: "Okay adhit, I'll tell faza about it 👍",
+      time: "13.40",
+    ),
+    ChatListItem(
+      name: "Raul",
+      avatar: "assets/images/avatar5.png",
+      message: "Thanks Raul! 🙏✨",
+      time: "Yesterday",
+      isRead: true,
+    ),
+    ChatListItem(
+      name: "Farhan Bagas",
+      avatar: "assets/images/avatar6.png",
+      message: "Great work farhan! 👍 I'll tell faza about logo...",
+      time: "29/08/22",
+      isRead: true,
+    ),
+    ChatListItem(
+      name: "Abdull",
+      avatar: "assets/images/avatar7.png",
+      message: "Perfecto!🔥 I will check it later",
+      time: "28/08/22",
+      isRead: true,
+    ),
+    ChatListItem(
+      name: "Ibe hatypo",
+      avatar: "assets/images/avatar8.png",
+      message: "nicely done bro!👍",
+      time: "28/08/22",
+      isRead: true,
+    ),
   ];
-
-  MainScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
           backgroundColor: Colors.white,
+          elevation: 0,
           title: const Text(
             'HALODEK',
-            style: TextStyle(color: kPrimaryColor, fontWeight: FontWeight.bold),
+            style: TextStyle(
+              color: Color.fromARGB(255, 238, 110, 36),
+              fontWeight: FontWeight.bold,
+              fontSize: 24,
+            ),
           ),
           actions: [
             IconButton(
-              icon: const Icon(Icons.search, color: Colors.black),
+              icon: Icon(Icons.search, color: Colors.grey[700], size: 24),
               onPressed: () {},
             ),
             IconButton(
-              icon: const Icon(Icons.more_vert, color: Colors.black),
+              icon: Icon(Icons.more_vert, color: Colors.grey[700], size: 24),
               onPressed: () {},
             ),
           ],
           bottom: PreferredSize(
-            preferredSize: const Size.fromHeight(100),
+            preferredSize: const Size.fromHeight(56),
             child: Container(
-              height: 60,
+              alignment: Alignment.center,
+              margin: const EdgeInsets.symmetric(horizontal: 10),
+              padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 4),
               decoration: BoxDecoration(
-                color: Colors.grey[200],
-                borderRadius: BorderRadius.circular(8),
+                color: const Color.fromARGB(255, 239, 220, 209),
+                borderRadius: BorderRadius.circular(10),
               ),
-              margin: const EdgeInsets.symmetric(horizontal: 19, vertical: 14),
               child: TabBar(
-                labelColor: Colors.white,
-                unselectedLabelColor: kPrimaryColor,
-                indicatorColor: Colors.transparent,
                 indicator: BoxDecoration(
-                  color: kPrimaryColor,
-                  borderRadius: BorderRadius.circular(8),
+                  color: const Color(0xFFFF6F2E),
+                  borderRadius: BorderRadius.circular(15),
                 ),
-                indicatorSize: TabBarIndicatorSize.tab,
-                indicatorPadding:
-                    const EdgeInsets.symmetric(horizontal: 3, vertical: 3),
+                labelColor: Colors.white,
+                unselectedLabelColor: const Color(0xFFFF6F2E),
+                indicatorPadding: const EdgeInsets.symmetric(
+                  horizontal: -48,
+                  vertical: 2,
+                ),
+                labelPadding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 3,
+                ),
                 tabs: const [
                   Tab(text: 'Chat'),
                   Tab(text: 'Status'),
@@ -143,184 +140,178 @@ class MainScreen extends StatelessWidget {
               ),
             ),
           ),
-          iconTheme: const IconThemeData(color: Colors.black),
-          elevation: 0,
         ),
         body: TabBarView(
           children: [
-            buildChatTab(),
-            buildStatusTab(),
-            buildCallsTab(),
+            buildChatList(),
+            buildStatusView(),
+            buildCallsView(),
           ],
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {},
-          backgroundColor: kPrimaryColor,
-          child: const Icon(Icons.add),
+          backgroundColor: Colors.orange,
+          child: Icon(Icons.add, color: Colors.white),
+          hoverColor: Colors.orangeAccent, // Hover color for the FAB
+          elevation: 6, // Hover effect
         ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       ),
     );
   }
 
-  // Chat Tab
-  Widget buildChatTab() {
-    return ListView.builder(
-      padding: const EdgeInsets.all(10),
-      itemCount: chatData.length,
-      itemBuilder: (context, index) {
-        return chatWidget(Chat(
-          profileImage: chatData[index]["profileImage"],
-          name: chatData[index]["name"],
-          lastMessage: chatData[index]["lastMessage"],
-          time: chatData[index]["time"],
-          unreadCount: chatData[index]["unreadCount"],
-          seendMessage: '',
-          sentedMessage: '',
-        ));
-      },
-    );
-  }
-
-  // Status Tab
-  Widget buildStatusTab() {
-    return const Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(Icons.photo_camera, size: 50, color: Colors.grey),
-          SizedBox(height: 10),
-          Text("No recent updates",
-              style: TextStyle(fontSize: 18, color: Colors.grey)),
-        ],
-      ),
-    );
-  }
-
-  // Calls Tab
-  Widget buildCallsTab() {
-    return const Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(Icons.call, size: 50, color: Colors.grey),
-          SizedBox(height: 10),
-          Text("No recent calls",
-              style: TextStyle(fontSize: 18, color: Colors.grey)),
-        ],
-      ),
-    );
-  }
-
-  Widget chatWidget(Chat chat) {
+  Widget buildChatList() {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-      child: GestureDetector(
-        child: ListTile(
-          leading: CircleAvatar(
-            backgroundImage: AssetImage(chat.profileImage),
-            radius: 30,
-          ),
-          title: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                chat.name,
+      padding: const EdgeInsets.only(bottom: 40.0),
+      child: ListView.separated(
+        itemCount: chatItems.length,
+        separatorBuilder: (context, index) => const Column(
+          children: [
+            Divider(
+              color: Color.fromARGB(255, 200, 200, 200),
+              thickness: 1.0,
+              indent: 80,
+              endIndent: 20,
+            ),
+            SizedBox(height: 8),
+          ],
+        ),
+        itemBuilder: (context, index) {
+          final item = chatItems[index];
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: ListTile(
+              leading: CircleAvatar(
+                radius: 28,
+                backgroundImage: AssetImage(item.avatar),
+                backgroundColor: Colors.grey[200],
+              ),
+              title: Text(
+                item.name,
                 style: const TextStyle(
-                  fontSize: 19,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
                 ),
               ),
-              const SizedBox(height: 2),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
+              subtitle: Row(
                 children: [
+                  if (!item.isTyping && item.message.startsWith("Faza"))
+                    Text(
+                      "Faza • ",
+                      style: TextStyle(
+                        color: Colors.grey[600],
+                        fontSize: 14,
+                      ),
+                    ),
                   Expanded(
                     child: Text(
-                      chat.isTyping ? "typing..." : chat.lastMessage,
+                      item.isTyping ? "Typing..." : item.message,
                       style: TextStyle(
-                        fontSize: 14,
+                        color: item.isTyping ? Colors.orange : Colors.grey[600],
                         fontStyle:
-                            chat.isTyping ? FontStyle.italic : FontStyle.normal,
-                        fontWeight: chat.unreadCount > 0
-                            ? FontWeight.bold
-                            : FontWeight.w400,
+                            item.isTyping ? FontStyle.italic : FontStyle.normal,
+                        fontSize: 14,
                       ),
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
                 ],
               ),
-            ],
-          ),
-          trailing: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Text(
-                chat.time,
-                style: const TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-              const SizedBox(height: 5),
-              Row(
-                mainAxisSize: MainAxisSize.min,
+              trailing: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  if (chat.unreadCount > 0)
-                    CircleAvatar(
-                      radius: 11,
-                      backgroundColor: Colors.orange[300],
+                  Text(
+                    item.time,
+                    style: TextStyle(
+                      color: Colors.grey[600],
+                      fontSize: 12,
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  if (item.unreadCount > 0)
+                    Container(
+                      width: 20,
+                      height: 20,
+                      alignment: Alignment.center,
+                      decoration: const BoxDecoration(
+                        color: Colors.orange,
+                        shape: BoxShape.circle,
+                      ),
                       child: Text(
-                        chat.unreadCount.toString(),
+                        item.unreadCount.toString(),
                         style: const TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w600,
+                          color: Colors.white,
                           fontSize: 12,
                         ),
                       ),
+                    )
+                  else if (item.isRead)
+                    const Icon(
+                      Icons.done_all,
+                      color: Colors.orange,
+                      size: 20,
                     ),
-                  const SizedBox(width: 5),
-                  messageStatusIcon(
-                    chat.seendMessage.isNotEmpty ? Icons.done_all : Icons.done,
-                    chat.seendMessage.isNotEmpty ? Colors.blue : Colors.grey,
-                  ),
                 ],
               ),
-            ],
-          ),
-        ),
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ChatScreen(contactName: item.name),
+                ),
+              ),
+            ),
+          );
+        },
       ),
     );
   }
 
-  Widget messageStatusIcon(IconData icon, Color color) {
-    return Icon(
-      icon,
-      color: color,
-      size: 16,
+  Widget buildStatusView() {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(
+            Icons.photo_camera,
+            size: 64,
+            color: Colors.grey[400],
+          ),
+          const SizedBox(height: 16),
+          Text(
+            'No status updates',
+            style: TextStyle(
+              fontSize: 18,
+              color: Colors.grey[600],
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ],
+      ),
     );
   }
-}
 
-class Chat {
-  final String profileImage;
-  final String name;
-  final String lastMessage;
-  final String time;
-  final String seendMessage;
-  final String sentedMessage;
-  final int unreadCount;
-  final bool isTyping;
-
-  Chat({
-    required this.profileImage,
-    required this.name,
-    required this.lastMessage,
-    required this.time,
-    this.seendMessage = '',
-    this.sentedMessage = '',
-    this.unreadCount = 0,
-    this.isTyping = false,
-  });
+  Widget buildCallsView() {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(
+            Icons.phone_missed,
+            size: 64,
+            color: Colors.grey[400],
+          ),
+          const SizedBox(height: 16),
+          Text(
+            'No recent calls',
+            style: TextStyle(
+              fontSize: 18,
+              color: Colors.grey[600],
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }
